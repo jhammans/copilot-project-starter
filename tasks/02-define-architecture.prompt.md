@@ -23,10 +23,10 @@ If either condition is not met, stop and ask for the missing items.
 1. Review the requirements document carefully
 2. Ask clarifying questions if any requirement is architecturally ambiguous (2–3 questions at a time max)
 3. Produce the following artifacts in this order:
-   - **System Context Diagram** (C4 Level 1) — ASCII or Mermaid
+   - **System Context Diagram** (C4 Level 1) — Mermaid `C4Context` or `graph TD`
    - **Container Diagram** (C4 Level 2) — system components and their technologies
    - **Technology Stack** — with rationale for each choice
-   - **Data Model** — entity-relationship diagram with key entities and relationships
+   - **Data Model** — Mermaid `erDiagram` with key entities and relationships
    - **API Contract** — high-level resource structure and auth requirements
    - **Security Architecture** — authentication, authorization, secrets, encryption
    - **Architecture Decision Records** — one ADR for every significant technology choice

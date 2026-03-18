@@ -44,14 +44,24 @@ Draw every:
 - **Data flow** (HTTP requests, async messages, function calls)
 - **Trust boundary** (the line between zones of different trust levels)
 
-```
-[Browser] ──HTTPS──► [API Gateway] ──► [Application Service]
-                          |                     │
-                    [Trust Boundary]        [Database]
-                          │                     │
-                   [Identity Provider]    [Message Queue]
-                          │                     │
-                    [Third-party API]   [Object Storage]
+```mermaid
+graph LR
+    Browser([Browser]) -->|HTTPS| GW[API Gateway]
+    GW -->|internal| App[Application Service]
+    App --> DB[(Database)]
+    App --> MQ[[Message Queue]]
+    App --> ObjStore[(Object Storage)]
+
+    subgraph TrustBoundary [Trust Boundary]
+        GW
+        App
+        DB
+        MQ
+        ObjStore
+    end
+
+    GW -->|OAuth 2.0| IdP([Identity Provider])
+    App -->|webhook| ExtAPI([Third-party API])
 ```
 
 Identify and mark every trust boundary crossing — that's where the most interesting threats live.
@@ -158,7 +168,14 @@ For each mitigation:
 [List each trust boundary and what crosses it]
 
 ## Data Flow Diagram
-[ASCII or embedded diagram]
+
+```mermaid
+graph LR
+    %% Replace with actual system components
+    Actor([External Actor]) -->|protocol| Entry[Entry Point]
+    Entry --> Service[Service]
+    Service --> Store[(Data Store)]
+```
 
 ## Threats & Mitigations
 

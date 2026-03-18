@@ -20,37 +20,37 @@ Work through these stages **in order**. Each stage has an explicit gate conditio
 
 ### Stage 1 — Requirements Gathering
 - **Goal:** Capture functional requirements, non-functional requirements, constraints, and acceptance criteria.
-- **Process:** Use the `requirements-analyst` agent or the `01-gather-requirements.prompt.md` task.
+- **Process:** Use the `requirements-analyst` persona (`agents/personas/requirements-analyst.agent.md`) or the `01-gather-requirements.prompt.md` task.
 - **Gate:** All ambiguities resolved. Requirements documented and approved by stakeholder.
 - **Blocked action:** Writing any code, defining data models, or selecting technology stack.
 
 ### Stage 2 — Architecture & Design
 - **Goal:** Define system components, data flows, API contracts, and technology stack.
-- **Process:** Use the `solution-architect` agent or the `02-define-architecture.prompt.md` task.
+- **Process:** Use the `solution-architect` persona (`agents/personas/solution-architect.agent.md`) or the `02-define-architecture.prompt.md` task.
 - **Gate:** Architecture document reviewed. No unresolved trade-offs remain.
 - **Blocked action:** Writing implementation code.
 
 ### Stage 3 — Security Review
 - **Goal:** Threat model the design, identify attack surfaces, and define security controls.
-- **Process:** Use the `security-engineer` agent or the `03-security-review.prompt.md` task.
+- **Process:** Use the `security-engineer` persona (`agents/personas/security-engineer.agent.md`) or the `03-security-review.prompt.md` task.
 - **Gate:** Threat model complete. OWASP Top 10 addressed. IAM and RBAC defined.
 - **Blocked action:** Writing implementation code.
 
 ### Stage 4 — Implementation
 - **Goal:** Write code that satisfies requirements, follows standards, and passes security controls.
-- **Process:** Use the `senior-developer` agent or the `04-implementation.prompt.md` task.
+- **Process:** Use the `senior-developer` persona (`agents/personas/senior-developer.agent.md`) or the `04-implementation.prompt.md` task.
 - **Gate:** All acceptance criteria met. Tests written and passing. No critical lint errors.
 - **Blocked action:** Merging code without review.
 
 ### Stage 5 — Code Review
 - **Goal:** Validate code quality, security, standards compliance, and test coverage.
-- **Process:** Use the `code-reviewer` agent or the `05-code-review.prompt.md` task.
+- **Process:** Use the `code-reviewer` persona (`agents/personas/code-reviewer.agent.md`) or the `05-code-review.prompt.md` task.
 - **Gate:** All review comments resolved. Security scan passing.
 - **Blocked action:** Deploying to any environment.
 
 ### Stage 6 — Deployment
 - **Goal:** Release to target environment safely with rollback capability.
-- **Process:** Use the `devops-engineer` agent or the `06-deployment.prompt.md` task.
+- **Process:** Use the `devops-engineer` persona (`agents/personas/devops-engineer.agent.md`) or the `06-deployment.prompt.md` task.
 - **Gate:** Deployment checklist complete. Monitoring confirmed active.
 
 ---
@@ -96,6 +96,20 @@ When generating code:
 - **Node/Express:** See `skills/frameworks/nodejs-express.instructions.md`
 - **Spring Boot:** See `skills/frameworks/spring-boot.instructions.md`
 - **ASP.NET Core:** See `skills/frameworks/dotnet-aspnet.instructions.md`
+
+---
+
+## MCP Servers
+
+External tool servers that extend agent capabilities are documented in `agents/mcp/`. Each `.mcp.md` file covers setup, exposed tools, and security requirements.
+
+| Server | File | Purpose |
+|--------|------|---------|
+| `github` | `agents/mcp/github.mcp.md` | GitHub API |
+| `filesystem` | `agents/mcp/filesystem.mcp.md` | Local file access |
+| `database` | `agents/mcp/database.mcp.md` | SQL query and schema inspection |
+
+Copy `agents/mcp/mcp.json.template` to `.vscode/mcp.json` to register servers in VS Code.
 
 ---
 

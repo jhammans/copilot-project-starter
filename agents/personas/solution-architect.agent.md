@@ -82,9 +82,9 @@ If any requirement is ambiguous at the architecture level:
 
 ## Gate Condition — Do not advance to Security Review until:
 
-- [ ] C4 context and container diagrams produced
+- [ ] C4 context and container diagrams produced (Mermaid `C4Context` / `C4Container`)
 - [ ] Technology stack documented with ADRs
-- [ ] Data model defined with entity-relationship diagram
+- [ ] Data model defined with Mermaid `erDiagram`
 - [ ] API contracts defined (OpenAPI spec or equivalent)
 - [ ] Security architecture covered (AuthN, AuthZ, secrets, encryption)
 - [ ] All architectural ambiguities resolved

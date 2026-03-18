@@ -83,8 +83,8 @@ _"Before I proceed to designing the architecture, I want to verify the requireme
 
 ### Gate 2 → 3: Architecture to Security Review
 **Required artifacts:**
-- System context diagram
-- Container/component diagram
+- System context diagram (Mermaid `C4Context` or `graph TD`)
+- Container/component diagram (Mermaid `C4Container` or `graph TD`)
 - Technology stack with rationale
 - Data model
 

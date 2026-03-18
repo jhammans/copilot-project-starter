@@ -24,7 +24,7 @@ Every repository must have a `README.md` at the root covering:
 2. **Prerequisites** — What must be installed before using this?
 3. **Quick Start** — How do I run this from scratch in under 5 minutes?
 4. **Configuration** — What environment variables or config files are required?
-5. **Architecture Overview** — 2–3 sentences or a simple diagram of how parts fit together
+5. **Architecture Overview** — 2–3 sentences or a Mermaid diagram (use `graph TD` or `C4Context`) of how parts fit together
 6. **Running Tests** — How to run the test suite
 7. **Deployment** — How is this deployed?
 8. **Contributing** — How can someone contribute? Coding standards reference?
@@ -74,6 +74,37 @@ ADRs are required for:
 - Major refactors affecting the overall structure
 - Non-standard patterns or approaches
 - Decisions with significant security implications
+
+---
+
+---
+
+## Diagrams
+
+All diagrams must be authored in **Mermaid** and embedded directly in Markdown files using a fenced code block:
+
+````markdown
+```mermaid
+graph TD
+    A[Client] -->|HTTPS| B[API Gateway]
+    B --> C[Service]
+    C --> D[(Database)]
+```
+````
+
+Supported diagram types and their intended use:
+
+| Type | Mermaid keyword | Use for |
+|------|----------------|--------|
+| Flowchart | `graph TD` / `graph LR` | Architecture overviews, decision flows |
+| Sequence | `sequenceDiagram` | API call flows, auth flows |
+| Entity-Relationship | `erDiagram` | Data models |
+| C4 Context | `C4Context` | System context (C4 Level 1) |
+| C4 Container | `C4Container` | Container diagrams (C4 Level 2) |
+| Git graph | `gitGraph` | Branch strategy |
+| State | `stateDiagram-v2` | State machines, lifecycle flows |
+
+Do **not** use ASCII art, PlantUML, draw.io exports, or image files as substitutes for Mermaid diagrams.
 
 ---
 
