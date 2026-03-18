@@ -16,13 +16,19 @@ This repository provides a structured library of GitHub Copilot customization fi
 copilot-project-starter/
 ├── .github/
 │   └── copilot-instructions.md        # Root-level Copilot instructions (default for all interactions)
-├── agents/                            # Custom agent mode definitions (.agent.md)
-│   ├── requirements-analyst.agent.md
-│   ├── solution-architect.agent.md
-│   ├── senior-developer.agent.md
-│   ├── security-engineer.agent.md
-│   ├── code-reviewer.agent.md
-│   └── devops-engineer.agent.md
+├── agents/
+│   ├── personas/                      # SDLC role agents (.agent.md) — define model, tools, behavior
+│   │   ├── requirements-analyst.agent.md
+│   │   ├── solution-architect.agent.md
+│   │   ├── senior-developer.agent.md
+│   │   ├── security-engineer.agent.md
+│   │   ├── code-reviewer.agent.md
+│   │   └── devops-engineer.agent.md
+│   └── mcp/                           # MCP server documentation and configuration (.mcp.md)
+│       ├── github.mcp.md
+│       ├── filesystem.mcp.md
+│       ├── database.mcp.md
+│       └── mcp.json.template          # Copy to .vscode/mcp.json to register servers
 ├── skills/                            # Reusable skill definitions (.instructions.md / SKILL.md)
 │   ├── requirements-gathering/        # Requirements elicitation & SDLC gating
 │   ├── security/                      # OWASP, IAM, RBAC, threat modeling
@@ -59,7 +65,9 @@ Click **"Use this template"** on GitHub to create a new repo pre-populated with 
 |-----------|-----------------|---------|
 | `copilot-instructions.md` | `.github/copilot-instructions.md` | Always-active instructions for every Copilot interaction |
 | `*.instructions.md` | `.github/instructions/*.instructions.md` | Scoped instructions applied via `applyTo` glob patterns |
-| `*.agent.md` | `.github/agents/*.agent.md` | Named custom agent modes with specific tool & behavior configs |
+| `*.agent.md` | `agents/personas/*.agent.md` | Named custom agent modes (personas) with specific model, tool & behavior configs |
+| `*.mcp.md` | `agents/mcp/*.mcp.md` | MCP server documentation — setup, exposed tools, and security requirements |
+| `mcp.json.template` | `agents/mcp/mcp.json.template` | Template for `.vscode/mcp.json`; registers MCP servers in VS Code |
 | `*.prompt.md` | `.github/prompts/*.prompt.md` | Reusable prompt templates for common tasks |
 | `SKILL.md` | Any directory | Skill index files used by parent agents |
 
@@ -75,6 +83,32 @@ Requirements → Architecture → Security Review → Implementation → Code Re
 ```
 
 Each gate is controlled by task prompts in `tasks/` and gated by the requirements-gathering skill.
+
+## MCP Servers
+
+MCP (Model Context Protocol) servers extend persona agents with access to external tools. Server documentation lives in `agents/mcp/`:
+
+| Server | File | Purpose |
+|--------|------|---------|
+| `github` | `agents/mcp/github.mcp.md` | GitHub API — repos, issues, PRs, branches |
+| `filesystem` | `agents/mcp/filesystem.mcp.md` | Scoped read/write access to local files |
+| `database` | `agents/mcp/database.mcp.md` | SQL query execution and schema inspection |
+
+To activate servers, copy `agents/mcp/mcp.json.template` to `.vscode/mcp.json` and set the required environment variables.
+
+## Diagrams
+
+All diagrams must be authored in **Mermaid** and embedded in Markdown using a fenced code block. Supported types:
+
+| Type | Keyword | Use for |
+|------|---------|---------|
+| Flowchart | `graph TD` / `graph LR` | Architecture overviews, decision flows |
+| Sequence | `sequenceDiagram` | API and auth flows |
+| Entity-Relationship | `erDiagram` | Data models |
+| C4 Context | `C4Context` | System context (C4 Level 1) |
+| C4 Container | `C4Container` | Container diagrams (C4 Level 2) |
+
+See `standards/documentation-standards.md` for the full diagrams standard.
 
 ## Security Model
 

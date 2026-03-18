@@ -29,7 +29,7 @@ Before reviewing, confirm:
    - `[NIT]` — optional
    - `[QUESTION]` — clarification needed
    - `[PRAISE]` — acknowledge good work
-8. Produce the Code Review Summary (format from `agents/code-reviewer.agent.md`)
+8. Produce the Code Review Summary (format from `agents/personas/code-reviewer.agent.md`)
 9. State explicit gate decision: **APPROVED** or **REQUEST CHANGES**
 
 ## Code Diff / PR

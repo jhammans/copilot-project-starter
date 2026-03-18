@@ -18,7 +18,7 @@ You are acting as the **security-engineer** agent. Perform a comprehensive secur
 4. Review the IAM design against the IAM standards in `skills/security/iam.instructions.md`
 5. Review the authorization model against the RBAC standards in `skills/security/rbac.instructions.md`
 6. Identify all attack surfaces and define mitigations for each
-7. Produce the Security Review Report (format defined in `agents/security-engineer.agent.md`)
+7. Produce the Security Review Report (format defined in `agents/personas/security-engineer.agent.md`)
 8. **Gate status must be explicitly stated:**
    - **PASS** — no blocking issues; implementation may proceed
    - **CONDITIONAL PASS** — implementation may proceed with listed conditions
