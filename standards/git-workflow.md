@@ -113,8 +113,9 @@ Added feature, updated tests, fixed lint, bumped version  # too many concerns in
 
 ### Rules
 
-- **Subject line**: ≤72 characters; imperative mood ("add" not "added" or "adding"); no period at end
-- **Body**: Wrap at 80 characters; answer "why was this change necessary?" rather than restating the diff
+- **Subject line**: ≤50 characters; imperative mood ("add" not "added" or "adding"); no period at end
+- **Body**: Bullet points only — one line per change; no prose; the diff speaks for itself
+- **Keep it succinct** — do not write lengthy explanations or restate what the diff already shows
 - **One logical change per commit** — do not mix features, fixes, and formatting in a single commit
 - **Do not commit directly to `main` or `develop`** — always use a PR
 
