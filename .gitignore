@@ -146,6 +146,7 @@ override.tf.json
 .vscode/settings.json
 .vscode/launch.json
 .vscode/*.code-workspace
+.vscode/mcp.json
 
 # Keep shared VS Code settings (extensions, tasks)
 !.vscode/extensions.json
